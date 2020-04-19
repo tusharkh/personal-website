@@ -17,7 +17,8 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-body > footer {
+/* body > footer { */
+.main-flex-container > footer {
   flex-basis: 100px;
   border-top: 2px solid #000000;
 }
@@ -33,12 +34,14 @@ img {
 }
 
 /* Flex container Properties */
-
-body, header, nav, footer {
+/* div.main-flex-container */
+/* body, header, nav, footer { */
+.main-flex-container, header, nav, footer {
   display: flex;
 }
 
-body, main {
+/* body , main { */
+.main-flex-container, main {
   flex-direction: column;
 }
 
@@ -51,29 +54,21 @@ nav, footer {
 /* Header */
 
 header {
-  /* position: fixed; */
-  /* top: 0; */
-  /* width: 100%; */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100px;
   background-color: #ffffff;
-  flex-basis: 200px;
   font-family: 'Lato', sans-serif;
   font-size: 1.25rem;
   /* border-bottom: 2px solid #000000; */
-  transition: flex-basis 500ms;
-}
-
-header.small {
-  flex-basis: 50px;
+  transition: top 500ms;
 }
 
 header.sticky {
-  /* display: none; */
-  position: fixed;
   top: -60px;
   width: 100%;
   height: 60px;
-  /* z-index: 100; */
-  transition: top 500ms;
 }
 
 header.sticky.visible {
@@ -105,6 +100,7 @@ nav a {
 
 main {
   flex: 1 0 auto;
+  margin-top: 150px;
 }
 
 main a:link {

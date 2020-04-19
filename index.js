@@ -27,33 +27,18 @@
    */
   function init() {
     // THIS IS THE CODE THAT WILL BE EXECUTED ONCE THE WEBPAGE LOADS
-    window.addEventListener('scroll', resizeHeader);
-    window.addEventListener('scroll', fixHeader);
+    window.addEventListener('scroll', fixAndResizeHeader);
+    // window.addEventListener('scroll', fixHeader);
     window.addEventListener('scroll', makeHeaderVisible);
     // scrollPosition = document.body.scrollTop;
   }
 
-  /*
-   *  Resizes the header when the user scrolls past the top of the body
+  /**
+   *  Resizes header and fixes it to top of screen when the user scrolls past the top of the body
    * @listens window:scroll
    */
-  function resizeHeader() {
+  function fixAndResizeHeader() {
     const SCROLL_TRIGGER = 50;
-    let header = qs('header');
-    if (document.body.scrollTop > SCROLL_TRIGGER ||
-      document.documentElement.scrollTop > SCROLL_TRIGGER) {
-      header.classList.add('small');
-    } else {
-      header.classList.remove('small');
-    }
-  }
-
-  /*
-   *  Resizes the header when the user scrolls past the top of the body
-   * @listens window:scroll
-   */
-  function fixHeader() {
-    const SCROLL_TRIGGER = 200;
     let header = qs('header');
     let newScrollPosition = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
     if (newScrollPosition > SCROLL_TRIGGER) {
