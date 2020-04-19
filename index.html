@@ -1,0 +1,110 @@
+<!--
+  Name: Tushar Khurana
+  Date: April 23th 2020
+  Section: CSE 154 AG
+  TA: Kyle Christian Roland
+
+  An about page following the guidelines set by the project specs
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="uft-8">
+    <!--
+      for basic responsive design; code from
+      "https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag"
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Tushar Khurana">
+    <meta name="description" content="Tushar Khurana's personal website">
+    <title>About</title>
+
+    <!--
+      Using OG protocol as described in MDN docs
+      "https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML"
+    -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="Tushar Khurana's personal website">
+    <meta property="og:title" content="Tushar Khurana">
+    <meta property="og:description" content="Tushar Khurana's personal website">
+
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>Tushar Khurana</h1>
+        <a href="index.html">Home</a>
+        <a href="cv.html">CV</a>
+      </nav>
+    </header>
+    <main>
+      <h1>About Me</h1>
+
+      <section>
+        <p>
+          Hi! I'm an engineering student at the UW. I like to juggle, play the violin, and
+          read poetry.
+        </p>
+      </section>
+      <section>
+        <h2>Classes I'm currently taking</h2>
+        <ol>
+          <li>CSE 154: Web Programming (my favorite of course!)</li>
+          <li>COM 220: Public Speaking</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Five of My Favorite Things</h2>
+        <ol>
+          <li>
+            <strong>Favorite animal: </strong>
+            <a href="https://theoatmeal.com/comics/mantis_shrimp">Mantis Shrimp</a>
+          </li>
+          <li><strong>Favorite food: </strong>Lasagna</li>
+          <li><strong>Favorite TV show: </strong>Garfield</li>
+          <li><strong>Favorite hobby: </strong>Napping</li>
+          <li><strong>Favorite Drink: </strong>Coffee</li>
+        </ol>
+
+        <h3>A picture that represents when I'm happy</h3>
+        <img src="media/bike.jpeg" alt="Biking in the Cascades">
+        <p>
+          Source <a href="https://www.adventurecycling.org/guided-tours/van-supported-tours/2020-washington-cascades-van/">
+          Adventure Cycling Association</a>
+        </p>
+
+        <h3>A picture that represents when I'm sad</h3>
+        <img src="media/supernova.jpg" alt="SN 2014J Supernova Explosion">
+        <p>
+          Source: National Aeronatics and Space Administration
+          (<a href="https://www.nasa.gov/chandra/multimedia/supernova-sn2014j.html">NASA</a>)
+        </p>
+
+        <h3>One of my favorite quotes</h3>
+        <!--
+          Note: We'll learn about semantic tags more this week, but an article is a good semantic
+          choice here to group the information about a single quote and the author/source. If
+          you want to have multiple quotes, try duplicating this
+          "card UI" structure
+        -->
+        <article>
+          <blockquote>
+            <p>
+              There are no dangerous thoughts; thinking itself is dangerous.
+            </p>
+            <footer>Hannah Arendt</footer>
+          </blockquote>
+        </article>
+      </section>
+    </main>
+    <footer>
+      <a href="https://github.com/tusharkh">GitHub</a>
+      <a href="error">Source</a>
+      <a href="colophon">Acknowledgements</a>
+    </footer>
+  </body>
+</html>
