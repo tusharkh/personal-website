@@ -28,8 +28,8 @@
   function init() {
     // THIS IS THE CODE THAT WILL BE EXECUTED ONCE THE WEBPAGE LOADS
     window.addEventListener('scroll', fixAndResizeHeader);
-    // window.addEventListener('scroll', fixHeader);
     window.addEventListener('scroll', makeHeaderVisible);
+    id('search').addEventListener('input', showSearchResults);
     // scrollPosition = document.body.scrollTop;
   }
 
@@ -63,6 +63,26 @@
     }
     scrollPosition = newScrollPosition;
   }
+
+  /**
+   * Created a search drop when the user types a search query
+   */
+  function showSearchResults(e) {
+    let searchBox = id('search-results-box');
+    if (e.target.value) {
+      if (!searchBox) {
+        searchBox = document.createElement('div');
+        searchBox.id = 'search-results-box';
+        let mainContainer = id('main-flex-container');
+        document.body.insertBefore(searchBox, mainContainer);
+      }
+    } else {
+      if (searchBox) {
+        searchBox.remove();
+      }
+    }
+  }
+
 
   /**
    * Make sure to always add a descriptive comment above
