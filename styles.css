@@ -66,6 +66,20 @@ header.small {
   flex-basis: 50px;
 }
 
+header.sticky {
+  /* display: none; */
+  position: fixed;
+  top: -60px;
+  width: 100%;
+  height: 60px;
+  /* z-index: 100; */
+  transition: top 500ms;
+}
+
+header.sticky.visible {
+  top: 0;
+}
+
 header h1 {
   margin: 20px;
   min-width: 250px;

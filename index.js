@@ -15,6 +15,7 @@
 (function() {
 
   // MODULE GLOBAL VARIABLES, CONSTANTS, AND HELPER FUNCTIONS CAN BE PLACED HERE
+  let scrollPosition = 0;
 
   /**
    * Function to call when the window is loaded
@@ -27,14 +28,17 @@
   function init() {
     // THIS IS THE CODE THAT WILL BE EXECUTED ONCE THE WEBPAGE LOADS
     window.addEventListener('scroll', resizeHeader);
+    window.addEventListener('scroll', fixHeader);
+    window.addEventListener('scroll', makeHeaderVisible);
+    // scrollPosition = document.body.scrollTop;
   }
 
-  /**
+  /*
    *  Resizes the header when the user scrolls past the top of the body
    * @listens window:scroll
    */
   function resizeHeader() {
-    const SCROLL_TRIGGER = 10;
+    const SCROLL_TRIGGER = 50;
     let header = qs('header');
     if (document.body.scrollTop > SCROLL_TRIGGER ||
       document.documentElement.scrollTop > SCROLL_TRIGGER) {
@@ -42,6 +46,37 @@
     } else {
       header.classList.remove('small');
     }
+  }
+
+  /*
+   *  Resizes the header when the user scrolls past the top of the body
+   * @listens window:scroll
+   */
+  function fixHeader() {
+    const SCROLL_TRIGGER = 200;
+    let header = qs('header');
+    let newScrollPosition = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+    if (newScrollPosition > SCROLL_TRIGGER) {
+      header.classList.add('sticky');
+    } else {
+      header.classList.remove('sticky');
+    }
+  }
+
+  /*
+   *  Resizes the header when the user scrolls past the top of the body
+   * @listens window:scroll
+   */
+  function makeHeaderVisible() {
+    const SCROLL_TRIGGER = 500;
+    let header = qs('header');
+    let newScrollPosition = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+    if (newScrollPosition > SCROLL_TRIGGER) {
+      header.classList.add('visible');
+    } else {
+      header.classList.remove('visible');
+    }
+    scrollPosition = newScrollPosition;
   }
 
   /**
