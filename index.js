@@ -129,10 +129,6 @@
   }
 
   /** ------------------------------ Helper Functions  ------------------------------ */
-  /**
-   * Note: You may use these in your code, but remember that your code should not have
-   * unused functions. Remove this comment in your own code.
-   */
 
   /**
    * Returns the element that has the ID attribute with the specified value.
