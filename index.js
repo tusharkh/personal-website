@@ -78,6 +78,7 @@
       if (!searchBox) {
         searchBox = gen('div');
         searchBox.id = 'search-results-box';
+
         /*
          * add each result that shows up in the search. Search is not implemented yet,
          * so these results are examples
