@@ -95,11 +95,23 @@
   }
 
   /**
+   * Removes search drop when the user scrolls
+   */
+  function removeSearchResults() {
+    let searchBox = id('search-results-box');
+    if (searchBox) {
+      searchBox.remove();
+    }
+  }
+
+  /** ------------------------------ Helper Functions  ------------------------------ */
+
+  /**
    * Internal helper function for adding a search result to the search box
    * @param {string} page - Page where content is located
    * @param {string} content - Snippet of relevant content
    * @param {string} linkLocation - relative link to the page
-   * @param {element} searchBox - Searchbox container
+   * @param {object} searchBox - Searchbox container
    */
   function addResult(page, content, linkLocation, searchBox) {
     let pageName = gen('span');
@@ -117,18 +129,6 @@
     link.appendChild(searchResult);
     searchBox.appendChild(link);
   }
-
-  /**
-   * Removes search drop when the user scrolls
-   */
-  function removeSearchResults() {
-    let searchBox = id('search-results-box');
-    if (searchBox) {
-      searchBox.remove();
-    }
-  }
-
-  /** ------------------------------ Helper Functions  ------------------------------ */
 
   /**
    * Returns the element that has the ID attribute with the specified value.
