@@ -16,6 +16,7 @@
 
   // global variable
   let scrollPosition = 0;
+  // global constant
   const SCROLL_TRIGGER = 100;
 
   /**
