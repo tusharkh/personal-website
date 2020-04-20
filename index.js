@@ -28,7 +28,8 @@
    */
   function init() {
     // THIS IS THE CODE THAT WILL BE EXECUTED ONCE THE WEBPAGE LOADS
-    window.addEventListener('scroll', resizeAndHideHeader);
+    window.addEventListener('scroll', resizeHeader);
+    window.addEventListener('scroll', hideHeader);
     window.addEventListener('scroll', makeHeaderVisible);
     id('search').addEventListener('input', showSearchResults);
   }
@@ -37,14 +38,29 @@
    *  Resizes header and makes it invisible when the user scrolls past the top of the body
    * @listens window:scroll
    */
-  function resizeAndHideHeader() {
+  function resizeHeader() {
     const SCROLL_TRIGGER = 100;
     let header = qs('header');
     let newScrollPosition = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
     if (newScrollPosition > SCROLL_TRIGGER) {
-      header.classList.add('sticky');
+      header.classList.add('small');
     } else {
-      header.classList.remove('sticky');
+      header.classList.remove('small');
+    }
+  }
+
+  /**
+   *  Resizes header and makes it invisible when the user scrolls past the top of the body
+   * @listens window:scroll
+   */
+  function hideHeader() {
+    const SCROLL_TRIGGER = 100;
+    let header = qs('header');
+    let newScrollPosition = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+    if (newScrollPosition > SCROLL_TRIGGER) {
+      header.classList.add('hidden');
+    } else {
+      header.classList.remove('hidden');
     }
   }
 
@@ -57,9 +73,7 @@
     let header = qs('header');
     let newScrollPosition = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
     if (newScrollPosition > SCROLL_TRIGGER && newScrollPosition < scrollPosition) {
-      header.classList.add('visible');
-    } else {
-      header.classList.remove('visible');
+      header.classList.remove('hidden');
     }
     scrollPosition = newScrollPosition;
   }

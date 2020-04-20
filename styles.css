@@ -61,28 +61,32 @@ header, #search-results-box {
   background-color: #ffffff;
 }
 
-header, header.sticky.visible {
-  top: 0;
-}
-
 header, nav {
   width: 100%;
 }
 
-header, header.sticky {
-  /* transition: top 500s; */
-  transition: height 500s;
+header, header.small, header.hidden {
+  transition: top 500ms;
+  transition: height 500ms;
 }
 
 header {
+  top: 0px;
   height: 80px;
   font-family: 'Lato', sans-serif;
   font-size: 1.25rem;
+  transition: top 500ms;
+  transition: height 500ms;
 }
 
-header.sticky {
-  top: -60px;
+header.small {
   height: 60px;
+  transition: height 500ms;
+}
+
+header.hidden {
+  top: -60px;
+  transition: top 500ms;
 }
 
 header h1 {
