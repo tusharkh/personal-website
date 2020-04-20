@@ -6,7 +6,9 @@
  *
  * Javascript file for creative project 2. This file handles header resizing,
  * makes the header invisble upon scrolling down, and makes it visible upon
- * scrolling up. It also handles event responses for a search bar.
+ * scrolling up. It also handles event responses for a search bar. Note the
+ * search bar does not actually work, but it provides the basis for how
+ * search results will be shown when searching is intergrated into the site.
  */
 "use strict";
 
@@ -36,7 +38,7 @@
   /** Resizes header when the user scrolls past the top of the body */
   function resizeHeader() {
     let header = qs('header');
-    let newScrollPosition = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+    let newScrollPosition = document.documentElement.scrollTop;
     if (newScrollPosition > SCROLL_TRIGGER) {
       header.classList.add('small');
     } else {
@@ -47,7 +49,7 @@
   /** Hides header when the user scrolls past the top of the body */
   function hideHeader() {
     let header = qs('header');
-    let newScrollPosition = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+    let newScrollPosition = document.documentElement.scrollTop;
     if (newScrollPosition > SCROLL_TRIGGER) {
       header.classList.add('hidden');
     } else {
@@ -58,7 +60,7 @@
   /** Makes header visible when user scrolls up */
   function showHeaderOnUpscroll() {
     let header = qs('header');
-    let newScrollPosition = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+    let newScrollPosition = document.documentElement.scrollTop;
     if (newScrollPosition > SCROLL_TRIGGER && newScrollPosition < scrollPosition) {
       header.classList.remove('hidden');
     }
@@ -88,11 +90,11 @@
   }
 
   /**
-   * Interal helper function for adding a search result to the search box
+   * Internal helper function for adding a search result to the search box
    * @param {string} page - Page where content is located
    * @param {string} content - Snippet of relevant content
    * @param {string} linkLocation - relative link to the page
-   * @param {div:element} searchBox - Searchbox container
+   * @param {element} searchBox - Searchbox container
    */
   function addResult(page, content, linkLocation, searchBox) {
     let pageName = gen('span');
