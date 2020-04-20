@@ -13,7 +13,7 @@ a vanishing header
 
 body {
   /* background-color: #ffffff; */
-  background-color: #dbdbdb;
+  background-color: #fafafa;
   min-height: 100vh;
   margin: 0px auto 0px;
   font-family: 'Open Sans', sans-serif;
@@ -65,28 +65,25 @@ header, nav {
   width: 100%;
 }
 
-header, header.small, header.hidden {
-  transition: top 500ms;
-  transition: height 500ms;
-}
-
 header {
   top: 0px;
   height: 80px;
   font-family: 'Lato', sans-serif;
   font-size: 1.25rem;
-  transition: top 500ms;
-  transition: height 500ms;
+  box-shadow: 0px 0px 5px 0px #d6d6d6;
 }
 
 header.small {
   height: 60px;
-  transition: height 500ms;
 }
 
 header.hidden {
-  top: -60px;
-  transition: top 500ms;
+  top: -65px;
+}
+
+header, header.small, header.hidden {
+  transition: height 500ms;
+  transition: top 250ms;
 }
 
 header h1 {
@@ -119,7 +116,7 @@ nav a, #search {
 /* Search Results */
 
 #search-results-box {
-  top: 8%;
+  top: 60px;
   right: 15%;
   z-index: 100;
   max-height: 70%;
