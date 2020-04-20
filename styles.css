@@ -69,11 +69,15 @@ header, nav {
   width: 100%;
 }
 
+header, header.sticky {
+  /* transition: top 500s; */
+  transition: height 500s;
+}
+
 header {
   height: 80px;
   font-family: 'Lato', sans-serif;
   font-size: 1.25rem;
-  transition: top 500ms;
 }
 
 header.sticky {

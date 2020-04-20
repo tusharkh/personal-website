@@ -1,12 +1,13 @@
 /**
  * Name: Tushar Khurana
- * Date: April 23rd 2020
+ * Date: April 22nd 2020
  * Section: CSE 154 AG
  * TA: Kyle Christian Roland
  *
  * -- your description of what this file does here --
- * Javascript file for creative project 2. This file handles header resizing
- * and the event responses for a search bar.
+ * Javascript file for creative project 2. This file handles header resizing,
+ * makes the header invisble upon scrolling down, and makes it visible upon
+ * scrolling up. It also handles event responses for a search bar.
  * Do not keep comments from this template in any work you submit (functions included under "Helper
  * functions" are an exception, you may keep the function names/comments of id/qs/qsa/gen)
  */
@@ -14,7 +15,7 @@
 
 (function() {
 
-  // MODULE GLOBAL VARIABLES, CONSTANTS, AND HELPER FUNCTIONS CAN BE PLACED HERE
+  // global variable
   let scrollPosition = 0;
 
   /**
@@ -23,22 +24,21 @@
   window.addEventListener("load", init);
 
   /**
-   * CHANGE: Describe what your init function does here.
+   * Adds event listeners for scrolling (for header resizing) and to the search bar
    */
   function init() {
     // THIS IS THE CODE THAT WILL BE EXECUTED ONCE THE WEBPAGE LOADS
-    window.addEventListener('scroll', fixAndResizeHeader);
+    window.addEventListener('scroll', resizeAndHideHeader);
     window.addEventListener('scroll', makeHeaderVisible);
     id('search').addEventListener('input', showSearchResults);
-    // scrollPosition = document.body.scrollTop;
   }
 
   /**
-   *  Resizes header and fixes it to top of screen when the user scrolls past the top of the body
+   *  Resizes header and makes it invisible when the user scrolls past the top of the body
    * @listens window:scroll
    */
-  function fixAndResizeHeader() {
-    const SCROLL_TRIGGER = 50;
+  function resizeAndHideHeader() {
+    const SCROLL_TRIGGER = 100;
     let header = qs('header');
     let newScrollPosition = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
     if (newScrollPosition > SCROLL_TRIGGER) {
@@ -48,15 +48,15 @@
     }
   }
 
-  /*
-   *  Resizes the header when the user scrolls past the top of the body
+  /**
+   * Makes header visible when user scrolls up
    * @listens window:scroll
    */
   function makeHeaderVisible() {
-    const SCROLL_TRIGGER = 500;
+    const SCROLL_TRIGGER = 100;
     let header = qs('header');
     let newScrollPosition = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
-    if (newScrollPosition > SCROLL_TRIGGER) {
+    if (newScrollPosition > SCROLL_TRIGGER && newScrollPosition < scrollPosition) {
       header.classList.add('visible');
     } else {
       header.classList.remove('visible');
