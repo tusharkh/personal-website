@@ -1,4 +1,4 @@
-/**
+/*
  * Name: Tushar Khurana
  * Date: April 22nd 2020
  * Section: CSE 154 AG
