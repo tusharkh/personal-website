@@ -17,7 +17,7 @@
   // global variable
   let scrollPosition = 0;
   // global constant
-  const SCROLL_TRIGGER = 100;
+  const SCROLL_TRIGGER = 50;
 
   /**
    * Initialize event handlers when the window is loaded
