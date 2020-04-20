@@ -77,7 +77,10 @@
       if (!searchBox) {
         searchBox = gen('div');
         searchBox.id = 'search-results-box';
-
+        /*
+         * add each result that shows up in the search. Search is not implemented yet,
+         * so these results are examples
+         */
         addResult('Home', 'A picture that represents when I\'m...', 'index.html', searchBox);
         addResult('CV', 'Wrote technical research and...', 'cv.html', searchBox);
 
