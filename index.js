@@ -71,8 +71,13 @@
     let searchBox = id('search-results-box');
     if (e.target.value) {
       if (!searchBox) {
-        searchBox = document.createElement('div');
+        searchBox = gen('div');
         searchBox.id = 'search-results-box';
+
+        addResult('Home', 'A picture that represents when I\'m...', 'index.html', searchBox);
+        addResult('CV', 'Wrote technical research and...',
+                  'cv.html', searchBox);
+
         let mainContainer = id('main-flex-container');
         document.body.insertBefore(searchBox, mainContainer);
       }
@@ -81,6 +86,31 @@
         searchBox.remove();
       }
     }
+  }
+
+  /**
+   * Interal helper function for adding a search result to the search box
+   * @param {string} page - Page where content is located
+   * @param {string} content - Snippet of relevant content
+   * @param {string} linkLocation - relative link to the page
+   * @param {div:element} searchBox - Searchbox container
+   */
+  function addResult(page, content, linkLocation, searchBox) {
+        let pageName = gen('span');
+        pageName.classList.add('search-result-page-name');
+        pageName.appendChild(document.createTextNode(page));
+        let pageContent = gen('span');
+        pageContent.classList.add('search-result-page-content');
+        pageContent.appendChild(document.createTextNode(content));
+        let searchResult = gen('div');
+        searchResult.classList.add('search-result');
+        searchResult.appendChild(pageName);
+        searchResult.appendChild(pageContent);
+        let link = gen('a');
+        link.href = linkLocation;
+        link.appendChild(searchResult);
+        searchBox.appendChild(link);
+
   }
 
 
