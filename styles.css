@@ -1,10 +1,12 @@
 /*
 Name: Tushar Khurana
-Date: April 8th 2020
+Date: April 22nd 2020
 Section: CSE 154 AG
 TA: Kyle Christian Roland
 
-This file contains the styles for a personal website for my CP1 project
+This file contains the styles for a personal website for my CP1 project,
+with new additions for the CP2 project to incorporate a search bar and
+a vanishing header
 */
 
 /* General */
@@ -17,12 +19,6 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-/* body > footer { */
-#main-flex-container > footer {
-  flex-basis: 100px;
-  border-top: 2px solid #000000;
-}
-
 a:link {
   color: inherit;
   text-decoration: currentColor solid;
@@ -30,49 +26,59 @@ a:link {
 
 img {
   max-width: 100%;
+}
+
+img, #search-results-box {
   height: auto;
 }
 
-/* Flex container Properties */
-/* div.main-flex-container */
-/* body, header, nav, footer { */
-#main-flex-container, header, nav, footer {
+/* Flex container properties */
+
+#main-flex-container, header, nav, footer, .search-result {
   display: flex;
 }
 
-/* body , main { */
 #main-flex-container, main {
   flex-direction: column;
 }
 
-nav, footer {
+nav, footer, .search-result {
   align-items: center;
+}
+
+nav, footer {
   flex-direction: row;
   justify-content: flex-end;
 }
 
+header, #search-results-box {
+  position: fixed;
+}
+
 /* Header */
 
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 80px;
+header, #search-results-box {
   background-color: #ffffff;
+}
+
+header, header.sticky.visible {
+  top: 0;
+}
+
+header, nav {
+  width: 100%;
+}
+
+header {
+  height: 80px;
   font-family: 'Lato', sans-serif;
   font-size: 1.25rem;
-  /* border-bottom: 2px solid #000000; */
   transition: top 500ms;
 }
 
 header.sticky {
   top: -60px;
-  width: 100%;
   height: 60px;
-}
-
-header.sticky.visible {
-  top: 0;
 }
 
 header h1 {
@@ -86,57 +92,54 @@ header h1 {
 
 nav {
   height: 100%;
-  width: 100%;
   padding: 0px 10%;
   margin-top: auto;
   margin-bottom: auto;
 }
 
-nav a {
+nav a, #search {
   margin: 0px 20px;
 }
 
 #search {
-  font-size: 1.25rem;
+  font-size: inherit;
   color: #454545;
   border: 0;
   width: 8rem;
-  margin: 0px 20px;
 }
 
 /* Search Results */
 
 #search-results-box {
-  position: fixed;
   top: 8%;
   right: 15%;
-  background-color: whitesmoke;
   z-index: 100;
-  height: auto;
+  max-height: 70%;
   width: 30rem;
   overflow-y: scroll;
-  box-shadow: 2px 2px 2px 1px #7c7979;
+  box-shadow: 1px 1px 1px 1px #c2c2c2;
   border-radius: 0.25rem;
 }
 
 .search-result {
-  display: flex;
   justify-content: start;
-  align-items: center;
   width: auto;
   height: 4rem;
   /* border: black 2px solid; */
 }
 
 .search-result:hover {
-  background-color: #e8e0f0;
+  background-color: #f4f0f8;
+}
+
+.search-result span {
+  color: #707070;
+  text-align: center;
 }
 
 span.search-result-page-name {
-  color: #292929;
   font-size: 1.1rem;
-  text-align: center;
-  border-right: 1px grey solid;
+  border-right: 1px #929292 solid;
   flex-basis: 30%;
   min-width: 8rem;
   height: 2.5rem;
@@ -145,18 +148,14 @@ span.search-result-page-name {
 }
 
 span.search-result-page-content {
-  text-align: center;
-  /* border: 1px white solid; */
   margin: 1.5rem;
-  width: auto;
-  color: #4d4d4d;
 }
 
 /* Main */
 
 main {
   flex: 1 0 auto;
-  margin-top: 150px;
+  margin-top: 100px;
 }
 
 main a:link {
@@ -170,6 +169,10 @@ main, footer {
 }
 
 /* Footer */
+
+#main-flex-container > footer {
+  flex-basis: 100px;
+}
 
 footer a {
   padding: 0px 10px 0px;
