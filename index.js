@@ -19,7 +19,7 @@
   /**
    * Initialize event handlers when the window is loaded
    */
-  window.addEventListener("load", init);
+  window.addEventListener('load', init);
 
   /**
    * Adds event listeners for scrolling (for header resizing, hidding and making it visible
@@ -33,9 +33,7 @@
     id('search').addEventListener('input', showSearchResults);
   }
 
-  /**
-   *  Resizes header when the user scrolls past the top of the body
-   */
+  /** Resizes header when the user scrolls past the top of the body */
   function resizeHeader() {
     let header = qs('header');
     let newScrollPosition = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
@@ -46,9 +44,7 @@
     }
   }
 
-  /**
-   *  Hides header when the user scrolls past the top of the body
-   */
+  /** Hides header when the user scrolls past the top of the body */
   function hideHeader() {
     let header = qs('header');
     let newScrollPosition = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
@@ -59,9 +55,7 @@
     }
   }
 
-  /**
-   * Makes header visible when user scrolls up
-   */
+  /** Makes header visible when user scrolls up */
   function showHeaderOnUpscroll() {
     let header = qs('header');
     let newScrollPosition = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
@@ -73,26 +67,23 @@
 
   /**
    * Created a search drop when the user types a search query
-   * @param {event} e - The search input event to be handled
+   * @param {event} event - The search input event to be handled
    */
-  function showSearchResults(e) {
+  function showSearchResults(event) {
     let searchBox = id('search-results-box');
-    if (e.target.value) {
+    if (e.target.value !== '') {
       if (!searchBox) {
         searchBox = gen('div');
         searchBox.id = 'search-results-box';
 
         addResult('Home', 'A picture that represents when I\'m...', 'index.html', searchBox);
-        addResult('CV', 'Wrote technical research and...',
-                  'cv.html', searchBox);
+        addResult('CV', 'Wrote technical research and...', 'cv.html', searchBox);
 
         let mainContainer = id('main-flex-container');
         document.body.insertBefore(searchBox, mainContainer);
       }
-    } else {
-      if (searchBox) {
-        searchBox.remove();
-      }
+    } else if (searchBox) {
+      searchBox.remove();
     }
   }
 
@@ -104,21 +95,20 @@
    * @param {div:element} searchBox - Searchbox container
    */
   function addResult(page, content, linkLocation, searchBox) {
-        let pageName = gen('span');
-        pageName.classList.add('search-result-page-name');
-        pageName.appendChild(document.createTextNode(page));
-        let pageContent = gen('span');
-        pageContent.classList.add('search-result-page-content');
-        pageContent.appendChild(document.createTextNode(content));
-        let searchResult = gen('div');
-        searchResult.classList.add('search-result');
-        searchResult.appendChild(pageName);
-        searchResult.appendChild(pageContent);
-        let link = gen('a');
-        link.href = linkLocation;
-        link.appendChild(searchResult);
-        searchBox.appendChild(link);
-
+    let pageName = gen('span');
+    pageName.classList.add('search-result-page-name');
+    pageName.appendChild(document.createTextNode(page));
+    let pageContent = gen('span');
+    pageContent.classList.add('search-result-page-content');
+    pageContent.appendChild(document.createTextNode(content));
+    let searchResult = gen('div');
+    searchResult.classList.add('search-result');
+    searchResult.appendChild(pageName);
+    searchResult.appendChild(pageContent);
+    let link = gen('a');
+    link.href = linkLocation;
+    link.appendChild(searchResult);
+    searchBox.appendChild(link);
   }
 
   /**
