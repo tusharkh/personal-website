@@ -71,7 +71,7 @@
    */
   function showSearchResults(event) {
     let searchBox = id('search-results-box');
-    if (e.target.value !== '') {
+    if (event.target.value !== '') {
       if (!searchBox) {
         searchBox = gen('div');
         searchBox.id = 'search-results-box';
