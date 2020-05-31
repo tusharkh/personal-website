@@ -1,10 +1,5 @@
 /*
- * Name: Tushar Khurana
- * Date: April 22nd 2020
- * Section: CSE 154 AG
- * TA: Kyle Christian Roland
- *
- * Javascript file for creative project 2. This file handles header resizing,
+ * Javascript file for the website. This file handles header resizing,
  * makes the header invisble upon scrolling down, and makes it visible upon
  * scrolling up. It also handles event responses for a search bar. Note the
  * search bar does not actually work, but it provides the basis for how
